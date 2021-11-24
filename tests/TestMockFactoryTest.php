@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 class TestMockFactoryTest extends TestCase
 {
     /**
-     * @covers
+     * @covers \Agilicode\PhpUnitTestFactory\TestMockFactory
      */
     public function testCreate()
     {
@@ -19,7 +19,7 @@ class TestMockFactoryTest extends TestCase
     }
 
     /**
-     * @covers
+     * @covers \Agilicode\PhpUnitTestFactory\TestMockFactory
      */
     public function testCreateWillThrowsReflectionException()
     {
