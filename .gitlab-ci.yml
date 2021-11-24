@@ -15,4 +15,4 @@ before_script:
 
 test:app:
     script:
-        -  php vendor/bin/phpunit tests --colors=always --coverage-text --filter methodName tests/*.php
+        -  php vendor/bin/phpunit tests --colors=always --coverage-text
