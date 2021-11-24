@@ -8,13 +8,19 @@ use PHPUnit\Framework\TestCase;
 
 class TestMockFactoryTest extends TestCase
 {
+    /**
+     * @covers \Agilicode\PhpUnitTestFactory\TestMockFactory
+     */
     public function testCreate()
     {
         $mockFactory = TestMockFactory::create(TestMockFactoryInterface::class, [], $this);
-        $this->assertInstanceOf(TestMockFactoryInterface::class, $mockFactory->getObject());
+        $this->assertInstanceOf(TestMockFactoryInterface::class, $mockFactory);
         $this->assertInstanceOf(TestMockFactoryInterface::class, $mockFactory->getObject());
     }
 
+    /**
+     * @covers \Agilicode\PhpUnitTestFactory\TestMockFactory
+     */
     public function testCreateWillThrowsReflectionException()
     {
         $this->expectException(\ReflectionException::class);
