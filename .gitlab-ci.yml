@@ -1,5 +1,8 @@
 image: php:7.4
 
+variables:
+    XDEBUG_MODE: coverage
+
 before_script:
     - apt update && apt upgrade -y
     - apt install -y zlib1g-dev git libicu-dev zip libzip-dev curl
