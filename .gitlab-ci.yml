@@ -2,7 +2,7 @@ image: php:7.4
 
 before_script:
     - apt update && apt upgrade -y
-    - apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev php-xdebug
+    - apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev php7.4-xdebug
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
     - php composer-setup.php
     - php -r "unlink('composer-setup.php');"
