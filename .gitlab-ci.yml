@@ -1,11 +1,13 @@
-image: chrisb9/php8
+image: php:7.4
 
 before_script:
     - apt update && apt upgrade -y
     - apt install -y zlib1g-dev git libicu-dev zip libzip-dev curl
+    - pecl install xdebug
+    - docker-php-ext-enable xdebug
     - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
     - composer install
 
-test:app:
+test:phpunit:
     script:
         - php vendor/bin/phpunit --coverage-text --color tests
