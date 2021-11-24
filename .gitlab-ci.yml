@@ -15,4 +15,4 @@ before_script:
 
 test:app:
     script:
-        -  php vendor/bin/phpunit --colors=always --coverage-text --filter 'Tests\\Agilicode' tests
+        -  php vendor/bin/phpunit -c phpunit.xml.dist
