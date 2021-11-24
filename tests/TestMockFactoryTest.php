@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Agilicode\PhpUnitTestFactory;
+namespace Tests\Agilicode;
 
 use Agilicode\PhpUnitTestFactory\TestMockFactory;
 use Agilicode\PhpUnitTestFactory\TestMockFactoryInterface;
