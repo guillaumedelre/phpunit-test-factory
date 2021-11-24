@@ -13,4 +13,4 @@ before_script:
 
 test:phpunit:
     script:
-        - php vendor/bin/phpunit --coverage-text --color tests
+        - php vendor/bin/phpunit -c phpunit.xml --coverage-text --color tests
