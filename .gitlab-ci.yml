@@ -5,7 +5,7 @@ variables:
 
 before_script:
     - apt update && apt upgrade -y
-    - apt install -y zlib1g-dev g++ git libicu-dev zip libzip-dev
+    - apt install -y zlib1g-dev git libicu-dev zip libzip-dev
     - pecl install xdebug
     - docker-php-ext-enable xdebug
     - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
