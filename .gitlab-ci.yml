@@ -1,5 +1,11 @@
 image: php:7.4
 
+before_script:
+    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    - php composer-setup.php
+    - php -r "unlink('composer-setup.php');"
+    - composer install
+
 test:app:
     script:
         - vendor/phpunit/phpunit/phpunit tests --color
