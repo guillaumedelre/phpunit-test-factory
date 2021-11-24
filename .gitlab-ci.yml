@@ -8,4 +8,4 @@ before_script:
 
 test:app:
     script:
-        - vendor/phpunit/phpunit/phpunit tests --color
+        - vendor/bin/phpunit tests --color
