@@ -11,7 +11,7 @@ class TestMockFactoryTest extends TestCase
     public function testCreate()
     {
         $mockFactory = TestMockFactory::create(TestMockFactoryInterface::class, [], $this);
-        $this->assertInstanceOf(TestMockFactoryInterface::class, $mockFactory->getObject());
+        $this->assertInstanceOf(TestMockFactoryInterface::class, $mockFactory);
         $this->assertInstanceOf(TestMockFactoryInterface::class, $mockFactory->getObject());
     }
 
