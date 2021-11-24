@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Agilicode;
+namespace Tests\Agilicode\PhpUnitTestFactory;
 
 use Agilicode\PhpUnitTestFactory\TestMockFactory;
 use Agilicode\PhpUnitTestFactory\TestMockFactoryInterface;
@@ -19,7 +19,7 @@ class TestMockFactoryTest extends TestCase
     {
         $this->expectException(\ReflectionException::class);
         $this->expectExceptionCode(-1);
-        $this->expectExceptionMessage('Class className does not exist');
+        $this->expectExceptionMessage('Class "className" does not exist');
         TestMockFactory::create('className', [], $this);
     }
 }
