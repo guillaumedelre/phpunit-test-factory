@@ -18,5 +18,16 @@ test:phpunit:
         name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME"
         paths:
             - phpunit/coverage/
-        expire_in: 1 week
+        expire_in: 1 day
 
+pages:deploy:
+    dependencies:
+        - test:phpunit
+    script:
+        - mv phpunit/coverage/ public/
+    artifacts:
+        paths:
+            - public
+        expire_in: 1 week
+#    only:
+#        - develop
