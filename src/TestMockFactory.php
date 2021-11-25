@@ -55,9 +55,6 @@ class TestMockFactory implements TestMockFactoryInterface
         } else {
             $mock = $mockBuilder->getMock();
         }
-        foreach ($this->values as $property => $value) {
-            $this->classReflection->getProperty($property)->setValue($mock, $value);
-        }
 
         return $mock;
     }
