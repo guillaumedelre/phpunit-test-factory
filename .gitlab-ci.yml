@@ -3,16 +3,20 @@ image: php:7.4
 variables:
     XDEBUG_MODE: coverage
 
-before_script:
-    - apt update && apt upgrade -y
-    - apt install -y zlib1g-dev git libicu-dev zip libzip-dev curl
-    - pecl install xdebug
-    - docker-php-ext-enable xdebug
-    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-    - composer install
+#before_script:
 
-test:
-    stage: phpunit
+prepare:
+    stage: build
+    script:
+        - apt update && apt upgrade -y
+        - apt install -y zlib1g-dev git libicu-dev zip libzip-dev curl
+        - pecl install xdebug
+        - docker-php-ext-enable xdebug
+        - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+        - composer install
+
+phpunit:
+    stage: test
     script:
         - php vendor/bin/phpunit -c phpunit.xml --coverage-text --colors=never tests
 #    artifacts:
@@ -21,7 +25,8 @@ test:
 #            - coverage/
 #        expire_in: 1 day
 
-pages:deploy:
+pages:
+    stage: deploy
     dependencies:
         - test:phpunit
     script:
