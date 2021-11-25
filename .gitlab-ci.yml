@@ -13,8 +13,6 @@ before_script:
 
 phpunit:
     stage: test
-    dependencies:
-        - prepare
     script:
         - php vendor/bin/phpunit -c phpunit.xml --coverage-html coverage --coverage-text --colors=never tests
     artifacts:
