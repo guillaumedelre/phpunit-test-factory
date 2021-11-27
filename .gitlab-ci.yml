@@ -14,4 +14,9 @@ before_script:
 phpunit:
     stage: test
     script:
-        - php vendor/bin/phpunit -c phpunit.xml --coverage-html /srv/static/gitlab-runner/$CI_PROJECT_NAME-$CI_COMMIT_REF_NAME/coverage/ --coverage-text --colors=never tests
+        - php vendor/bin/phpunit -c phpunit.xml --coverage-html coverage --coverage-text --colors=never tests
+    artifacts:
+        name: "$CI_JOB_NAME-$CI_COMMIT_REF_NAME"
+        paths:
+            - /srv/static/$CI_JOB_NAME-$CI_COMMIT_REF_NAME/coverage/
+        expire_in: 1 week
