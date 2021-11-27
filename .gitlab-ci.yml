@@ -1,4 +1,4 @@
-image: registry-192-168-1-13.traefik.me/agilicode/php:7.0-fpm
+image: registry-192-168-1-13.traefik.me/agilicode/php:7.4-fpm
 
 variables:
     XDEBUG_MODE: coverage
