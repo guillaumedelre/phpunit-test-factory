@@ -1,15 +1,7 @@
-image: php:7.4
+image: registry-192-168-1-13.traefik.me/agilicode/php:7.0-fpm
 
 variables:
     XDEBUG_MODE: coverage
-
-before_script:
-    - apt update && apt upgrade -y
-    - apt install -y zlib1g-dev git libicu-dev zip libzip-dev curl
-    - pecl install xdebug
-    - docker-php-ext-enable xdebug
-    - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-    - composer install
 
 phpunit:
     stage: test
