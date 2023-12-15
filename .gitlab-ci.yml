@@ -2,7 +2,6 @@ image: docker
 
 variables:
     DOCKER_TLS_CERTDIR: "/certs"
-    XDEBUG_MODE: coverage
 
 services:
     - docker:dind
@@ -13,10 +12,13 @@ before_script:
 phpunit:
     script:
         - docker run -v $(pwd):/srv/app --rm registry.agilicode.fr/agilicode/app:8.1-fpm composer install
-        - docker run -e XDEBUG_MODE=coverage -v $(pwd):/srv/app --rm registry.agilicode.fr/agilicode/app:8.1-fpm vendor/bin/phpunit -c phpunit.xml --coverage-text --coverage-cobertura=coverage.cobertura.xml --colors=never tests
+        - docker run -e XDEBUG_MODE=coverage -v $(pwd):/srv/app --rm registry.agilicode.fr/agilicode/app:8.1-fpm vendor/bin/phpunit -c phpunit.xml --coverage-text --coverage-cobertura=coverage.cobertura.xml --log-junit junit-report.xml tests
         - ls -la
     artifacts:
+        when: always
         reports:
+            junit: junit-report.xml
             coverage_report:
                 coverage_format: cobertura
                 path: coverage.cobertura.xml
+                expire_in: 1 week
