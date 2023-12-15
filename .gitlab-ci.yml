@@ -8,7 +8,7 @@ services:
     - docker:dind
 
 before_script:
-    - echo "$REGISTRY_PWD" | docker login $REGISTRY_URL --username $REGISTRY_USR --password-stdin
+    - docker login "${REGISTRY_URL}" --username "${REGISTRY_USR}" --password "${REGISTRY_PWD}"
     - docker pull registry.agilicode.fr/agilicode/php:8.0-fpm
 
 phpunit:
