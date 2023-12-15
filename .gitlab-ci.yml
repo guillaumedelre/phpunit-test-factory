@@ -13,4 +13,4 @@ before_script:
 phpunit:
     script:
         - docker run -v $(pwd):/srv/app --rm registry.agilicode.fr/agilicode/app:8.1-fpm composer install
-        - docker run -v $(pwd):/srv/app --rm registry.agilicode.fr/agilicode/app:8.1-fpm vendor/bin/phpunit -c phpunit.xml --coverage-text --colors=never tests
+        - XDEBUG_MODE=coverage docker run -v $(pwd):/srv/app --rm registry.agilicode.fr/agilicode/app:8.1-fpm vendor/bin/phpunit -c phpunit.xml --coverage-text --colors=never tests
